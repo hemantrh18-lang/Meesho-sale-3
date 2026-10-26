@@ -1,0 +1,185 @@
+
+/* ===== Meesho Sale: Product Card Refresh ===== */
+
+:root {
+  --purple: #9f2089;
+  --purple-dark: #7d176b;
+  --pink: #e80071;
+  --ink: #333333;
+  --muted: #777777;
+  --line: #eeeeee;
+  --cream: #fff8fb;
+  --shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+body {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+}
+
+.search-wrap {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.search-wrap:focus-within {
+  border-color: #9f2089;
+  box-shadow: 0 0 0 3px rgba(159, 32, 137, 0.09);
+}
+
+.brand-sale {
+  color: #e80071;
+}
+
+.category-chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 2px;
+  scrollbar-width: thin;
+}
+
+.category-chips .chip {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border: 1px solid #e8dce6;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #444444;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.category-chips .chip:hover,
+.category-chips .chip.active {
+  background: #9f2089;
+  border-color: #9f2089;
+  color: #ffffff;
+}
+
+/* Product grid */
+#productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Product card */
+#productGrid .product-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#productGrid .product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+}
+
+#productGrid .product-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #fff7fb;
+}
+
+#productGrid .product-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#productGrid .product-card button {
+  cursor: pointer;
+}
+
+#productGrid .product-card button:not(.text-btn) {
+  max-width: 100%;
+}
+
+/* Prices and labels */
+#productGrid .product-card .price,
+#productGrid .product-card .product-price {
+  color: #222222;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+#productGrid .product-card .old-price {
+  margin-left: 5px;
+  color: #888888;
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+#productGrid .product-card .discount,
+#productGrid .product-card .product-discount {
+  color: #16834a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Add to Cart */
+#productGrid .product-card .add-cart,
+#productGrid .product-card button {
+  transition: background 0.2s, transform 0.2s;
+}
+
+#productGrid .product-card .add-cart {
+  border: 1px solid #9f2089;
+  border-radius: 7px;
+  background: #9f2089;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#productGrid .product-card .add-cart:hover {
+  background: #7d176b;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  #productGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* Mobile and narrow iPad layouts */
+@media (max-width: 600px) {
+  #productGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #productGrid .product-card {
+    border-radius: 8px;
+  }
+
+  #productGrid .product-card .price,
+  #productGrid .product-card .product-price {
+    font-size: 17px;
+  }
+
+  .category-chips {
+    gap: 7px;
+  }
+
+  .category-chips .chip {
+    padding: 8px 12px;
+  }
+}
